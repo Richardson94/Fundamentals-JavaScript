@@ -20,14 +20,15 @@ const animal = {
   canJump: true,
 };
 
-const birdTwo = {
-  canFly: true,
-  hasFeathers: true,
-};
+const bird = Object.create(animal);
+bird.canFly = true;
+bird.hasFeathers = true;
 
 function birdCan() {
-  for (const property in birdTwo) {
-    console.log(`${property}: ${birdTwo[property]}`);
+  for (const property in bird) {
+    if (property != 'canFly') {
+      console.log(`${property}: ${bird[property]}`);
+    }
   }
 }
 
@@ -35,9 +36,6 @@ birdCan();
 
 // Task 3
 
-const bird = Object.create(animal);
-bird.canFly = true;
-bird.hasFeathers = true;
 function animalCan() {
   for (const property in bird) {
     console.log(`${property}: ${bird[property]}`);
